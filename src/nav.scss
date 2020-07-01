@@ -1,0 +1,33 @@
+.nav {
+    background: #e877a6;
+    width: 80%;
+    margin: .75em auto;
+    border-radius: 5px;
+    position: relative;
+    display: block;
+    z-index: 20;
+
+    ul {
+        list-style-type: none;
+
+        li {
+            display: inline-block;
+            margin: 1em;
+
+            a {
+                color: #252835;
+                text-decoration: none;
+
+                &:visited {
+                    color: #252835;
+                }
+
+                &:hover,
+                &:focus {
+                    color: #FFF;
+                }
+            }
+            
+        }
+    }
+}

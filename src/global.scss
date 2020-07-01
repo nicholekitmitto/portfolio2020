@@ -1,0 +1,61 @@
+body {
+    background: #252835;
+}
+
+.glitch {
+    color: white;
+    font-size: 2.5em;
+    position: relative;
+    width: 320px;
+    margin: 0 auto;
+    // margin-left: 1em;
+    margin-bottom: .5em;
+
+    &::after {
+        content: attr(data-text);
+        position: absolute;
+        // left: 2px;
+        left: 0;
+        right: 0;
+        text-shadow: -1px 0 red;
+        top: 0;
+        color: white;
+        background: #252835;
+        overflow: hidden;
+        animation: noise-anim 2s infinite linear alternate-reverse;
+    }
+
+    &::before {
+        content: attr(data-text);
+        position: absolute;
+        left: -2px;
+        text-shadow: 1px 0 blue;
+        top: 0;
+        color: white;
+        background: #252835;
+        overflow: hidden;
+        animation: noise-anim-2 15s infinite linear alternate-reverse;
+    }
+}
+  
+@keyframes noise-anim {
+$steps: 20;
+@for $i from 0 through $steps {
+    #{percentage($i*(1/$steps))} {
+    $top: random(100);
+    $bottom: random(101 - $top);
+    clip-path: inset(#{$top}% 0 #{$bottom}%  0);
+    }
+}
+}
+
+@keyframes noise-anim-2 {
+$steps: 20;
+@for $i from 0 through $steps {
+    #{percentage($i*(1/$steps))} {
+    $top: random(100);
+    $bottom: random(101 - $top);
+    clip-path: inset(#{$top}% 0 #{$bottom}%  0);
+    }
+}
+}

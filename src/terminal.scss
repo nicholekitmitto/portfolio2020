@@ -1,0 +1,81 @@
+.terminal {
+    background: #0f1124;
+    color: #f80487;
+    width: 900px;
+    margin: 50px auto;
+    border-top: 30px solid #4db8a0;
+    border-radius: 10px;
+    min-height: 500px;
+    padding: 1em;
+    position: relative;
+      
+    .buttons {
+      position: absolute;
+      top: -1.15em;
+      display: flex;
+      flex-direction: row;
+      
+      > div {
+        width: 12px;
+        height: 12px;
+        border-radius: 100%;
+        margin-right: .5em;
+      }
+      
+      .close {
+        background: #ab0fb7;
+      }
+      
+      .minimize {
+        background: #f9d054;
+      }
+      
+      .expand {
+        background: #4ccffe;
+      }
+    }
+
+    &__input {
+        color: transparent;
+        text-shadow: 0 0 0 #f8f8f2;
+        white-space: nowrap;
+        
+        &::before {
+            content: "\276F";
+            display: inline-block;
+            line-height: 24px;
+            margin-right: 8px;
+            color: #ff79c6;
+        }
+
+        &::after {
+            content: "";
+            display: inline-block;
+            position: relative;
+            top: 2px;
+            width: 2px;
+            height: 16px;
+            background: #f8f8f2;
+            opacity: .5;
+            transition: opacity .1s ease;
+            margin-left: 4px;
+        }
+
+        &:focus {
+            outline: none;
+        }
+
+        &.is-active {
+            &::after {
+                animation: pulse 1s infinite ease;
+            }
+        }
+    }
+}
+
+
+@keyframes pulse {
+    0%   { opacity: 1 }
+    50%  { opacity: 0 }
+    100% { opacity: 1 }
+}
